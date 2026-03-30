@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantity Measurement</title>
+  <link rel="stylesheet" href="../css/dashboardStyle.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Welcome To Quantity Measurement</h1>
+  </header>
+  <main class="container">
+    <div class="card">
+      <!-- CHOOSE TYPE -->
+      <p class="section-label">CHOOSE TYPE</p>
+      <div class="type-grid">
+        <button class="type-btn active" data-type="length" onclick="selectType('length')">
+          <span class="emoji">&#x1F4CF;</span><span>Length</span>
+        </button>
+        <button class="type-btn" data-type="weight" onclick="selectType('weight')">
+          <span class="emoji">&#x2696;</span><span>Weight</span>
+        </button>
+        <button class="type-btn" data-type="temperature" onclick="selectType('temperature')">
+          <span class="emoji">&#x1F321;</span><span>Temperature</span>
+        </button>
+        <button class="type-btn" data-type="volume" onclick="selectType('volume')">
+          <span class="emoji">&#x1F9EA;</span><span>Volume</span>
+        </button>
+      </div>
+      <!-- CHOOSE ACTION -->
+      <p class="section-label">CHOOSE ACTION</p>
+      <div class="action-tabs">
+        <button class="action-btn active" onclick="selectAction('comparison')">Comparison</button>
+        <button class="action-btn" onclick="selectAction('conversion')">Conversion</button>
+        <button class="action-btn" onclick="selectAction('arithmetic')">Arithmetic</button>
+      </div>
+      <!-- COMPARISON PANEL -->
+      <div id="comparison-panel" class="panel">
+        <div class="input-row">
+          <div class="input-group">
+            <label>FROM</label>
+            <input type="number" id="comp-from-val" value="1" oninput="doCompare()">
+            <select id="comp-from-unit" onchange="doCompare()"></select>
+          </div>
+          <div class="input-group">
+            <label>TO</label>
+            <input type="text" id="comp-to-val" readonly>
+            <select id="comp-to-unit" onchange="doCompare()"></select>
+          </div>
+        </div>
+      </div>
+      <!-- CONVERSION PANEL -->
+      <div id="conversion-panel" class="panel hidden">
+        <div class="input-row">
+          <div class="input-group">
+            <label>VALUE</label>
+            <input type="number" id="conv-val" value="1" oninput="doConvert()">
+            <select id="conv-from-unit" onchange="doConvert()"></select>
+          </div>
+          <div class="arrow">&#x27A1;</div>
+          <div class="input-group">
+            <label>RESULT</label>
+            <input type="text" id="conv-result" readonly>
+            <select id="conv-to-unit" onchange="doConvert()"></select>
+          </div>
+        </div>
+      </div>
+      <!-- ARITHMETIC PANEL -->
+      <div id="arithmetic-panel" class="panel hidden">
+        <div class="input-row">
+          <div class="input-group">
+            <label>VALUE 1</label>
+            <input type="number" id="arith-val1" value="1" oninput="doArithmetic()">
+            <select id="arith-unit1" onchange="doArithmetic()"></select>
+          </div>
+          <div class="op-btn">
+            <button id="arith-op" onclick="toggleOp()">+</button>
+          </div>
+          <div class="input-group">
+            <label>VALUE 2</label>
+            <input type="number" id="arith-val2" value="1" oninput="doArithmetic()">
+            <select id="arith-unit2" onchange="doArithmetic()"></select>
+          </div>
+        </div>
+        <div class="result-box">
+          <div class="result-bar"></div>
+          <div class="result-content">
+            <p class="result-label">RESULT</p>
+            <p class="result-value" id="arith-result">0</p>
+          </div>
+          <select id="arith-result-unit" onchange="doArithmetic()"></select>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../js/dashboardScript.js"></script>
+</body>
+</html>
