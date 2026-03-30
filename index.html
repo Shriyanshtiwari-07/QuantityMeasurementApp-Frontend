@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Book Shopping - Login / Signup</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="C:\Users\rudra\Desktop\QuanProj\index.html" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+  <div class="illustration-circle">
+    <img src="C:\Users\tiwar\OneDrive\Desktop\QuantityMeasurementApp-Frontend--feature-vanilla-html-css-javascript\20944201.jpg" alt="books" />
+  </div>
+  <h2 class="brand-title">Quantity Measurement App</h2>
+</div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <div class="tabs">
+        <button class="tab-btn" id="loginTab" onclick="switchTab('login')">LOGIN</button>
+        <button class="tab-btn active" id="signupTab" onclick="switchTab('signup')">SIGNUP</button>
+      </div>
+
+      <!-- Signup Form -->
+      <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)" novalidate>
+        <div class="field-group">
+          <label>Full Name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name" />
+          <p class="error-msg" id="fullNameError"></p>
+        </div>
+        <div class="field-group">
+          <label>Email Id</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" />
+          <p class="error-msg" id="signupEmailError"></p>
+        </div>
+        <div class="field-group">
+          <label>Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="signupPassword" placeholder="Create a password" />
+            <button type="button" class="toggle-pw" onclick="togglePassword('signupPassword', this)">
+              <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <p class="error-msg" id="signupPasswordError"></p>
+        </div>
+        <div class="field-group">
+          <label>Confirm Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="signupPassword" placeholder="Create a password" />
+            <button type="button" class="toggle-pw" onclick="togglePassword('signupPassword', this)">
+              <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <p class="error-msg" id="signupPasswordError"></p>
+        </div>
+        <div class="field-group">
+          <label>Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="Enter 10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" />
+          <p class="error-msg" id="mobileError"></p>
+        </div>
+        <button type="submit" class="submit-btn">Signup</button>
+      </form>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form hidden" onsubmit="handleLogin(event)" novalidate>
+        <div class="field-group">
+          <label>Email Id</label>
+          <input type="email" id="loginEmail" placeholder="Enter your email" />
+          <p class="error-msg" id="loginEmailError"></p>
+        </div>
+        <div class="field-group">
+          <label>Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="loginPassword" placeholder="Enter your password" />
+            <button type="button" class="toggle-pw" onclick="togglePassword('loginPassword', this)">
+              <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <p class="error-msg" id="loginPasswordError"></p>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent page reload
+
+    // You can add login validation here
+
+    // Redirect to another page
+    window.location.href = "html/dashboard.html";
+  });
+</script>
+</body>
+</html>
